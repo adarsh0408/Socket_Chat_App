@@ -7,6 +7,10 @@ dotenv.config();
 
 app.get('/',(req,res)=>{
     res.send('hello')
+});
+
+app.get('/api/chat',(req,res)=>{
+    res.send('hello')
 })
 
 app.listen(PORT,()=>{
