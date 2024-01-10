@@ -14,7 +14,7 @@ const HomePage = ()=>{
        margin="0px auto"
        borderWidth="1px"
        >
-       <Tabs variant='soft-rounded' colorScheme='green'>
+       <Tabs variant='soft-rounded' colorScheme='blue'>
   <TabList>
     <Tab width="50%">Login</Tab>
     <Tab width="50%">Sign Up</Tab>
