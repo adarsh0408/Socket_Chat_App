@@ -3,8 +3,11 @@ require('dotenv').config();
 
 const  connectDB = async ()=>{
     try {
-        mongoose.connect("mongodb://127.0.0.1:27017/ChatApp");
-        console.log("MongoDB Connected");
+      const conn = await  mongoose.connect(process.env.MONGO_URI,{
+            useNewUrlParser:true,
+            useUnifiedTopology:true
+        });
+        console.log("MongoDB Connected",conn.connection.host);
 
     } catch (error) {
         console.log(error.message);
