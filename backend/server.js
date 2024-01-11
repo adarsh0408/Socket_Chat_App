@@ -9,9 +9,9 @@ const PORT = process.env.PORT || 5000;
 dotenv.config();
 connectDB(); 
 
+app.use('/api/user',userRoutes)
 app.use(notFound);
 app.use(errorHandler)
-app.use('/api/user',userRoutes)
 
 
 app.listen(PORT,()=>{
