@@ -2,10 +2,19 @@ import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 // import React, { useEffect, useState } from "react";
 import { Login } from "./components/Authenticatons/Login";
 import { SignUp } from "./components/Authenticatons/SignUp";
+import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 const HomePage = ()=>{
- 
+ const history = useHistory()
 
+ useEffect( () =>{
+  const user = JSON.parse(sessionStorage.getItem("userInfo"));
+
+  if(user){
+    history.push("/chatpage")
+  }
+ },[history])
     return(
         <>
        <Box

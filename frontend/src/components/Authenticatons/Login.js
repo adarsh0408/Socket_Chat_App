@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import { Button, FormControl, FormLabel, Input, VStack, useToast } from '@chakra-ui/react'
 
 import axios from 'axios';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export const Login = () => {
   const toast = useToast();
