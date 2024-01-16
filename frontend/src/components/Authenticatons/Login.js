@@ -43,7 +43,7 @@ export const Login = () => {
       sessionStorage.setItem('userInfo',JSON.stringify(data));
       
       setLoading(false);
-      history.push('/chats')
+      history.push('/chatpage')
     } catch (error) {
       
       toast({
