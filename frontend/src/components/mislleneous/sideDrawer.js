@@ -2,12 +2,19 @@ import { Avatar, Box, Button, Menu, MenuButton, MenuItem, MenuList, Text, Toolti
 import React, { useState } from 'react'
 import { BellIcon, ChevronDownIcon } from '@chakra-ui/icons'
 import { ChatState } from '../../Context/ChatProvider';
+import ProfileModal from './profileModal';
+import { useHistory } from 'react-router-dom';
 const SideDrawer = () => {
   const [search,setSearch]=useState('');
   const [searchResult,setSearchResult]=useState([]);
   const [loading,setLoading]=useState(false);
   const[loadingChat,setLoadingChat]=useState();
-  const user = ChatState();
+  const {user} = ChatState();
+  const history = useHistory();
+  const logoutHandler = () =>{
+    sessionStorage.removeItem("userInfo");
+    history.push('/')
+  }
   return (
    <>
     <Box
@@ -50,10 +57,13 @@ const SideDrawer = () => {
             <Avatar size="sm" cursor="pointer" name={user.name}/>
           </MenuButton>
           <MenuList>
+            <ProfileModal user={user}>
             <MenuItem>
               My Profile
             </MenuItem>
-            <MenuItem>
+            </ProfileModal>
+            
+            <MenuItem onClick={logoutHandler}>
               Logout
             </MenuItem>
           </MenuList>

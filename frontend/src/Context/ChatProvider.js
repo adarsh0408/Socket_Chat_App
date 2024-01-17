@@ -10,7 +10,7 @@ const ChatProvider = ({children}) => {
     useEffect(()=>{
         const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
         setUser(userInfo);
-
+        console.log(userInfo);
         if(!userInfo){
             history.push("/");
         }
