@@ -5,17 +5,19 @@ const ChatContext = createContext();
 
 const ChatProvider = ({children}) => {
     const [user,setUser] = useState();
+    const [selectedChat,setSelectedChat] = useState();
+    const [chats,setChats] = useState([]);
     const history = useHistory();
     
     useEffect(()=>{
         const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
         setUser(userInfo);
         console.log(userInfo);
-        if(!userInfo){
-            history.push("/");
-        }
+        // if(!userInfo){
+        //     history.push("/");
+        // }
     },[history]);
-    return <ChatContext.Provider value={{user,setUser}}>{children}</ChatContext.Provider>
+    return <ChatContext.Provider value={{user,setUser,setSelectedChat,selectedChat, chats,setChats}}>{children}</ChatContext.Provider>
 }
 export const ChatState = () =>{
     return useContext(ChatContext);
