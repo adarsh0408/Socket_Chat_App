@@ -46,7 +46,7 @@ const GroupChatModal = ({ children }) => {
         },
       };
       const { data } = await axios.get(`/api/user?search=${search}`, config);
-      console.log(data);
+      // console.log(data);
       setloading(false);
       setsearchResult(data);
     } catch (error) {
@@ -58,13 +58,17 @@ const GroupChatModal = ({ children }) => {
         position: "top-right",
         duration: 3000,
       });
+      setloading(false);
     }
   };
   const handleSubmit = () => {};
-  
+
+
   const handleDelete = (delUser) => {
-    console.log(delUser);
-    setSelectedUser(selectedUser.filter((sel)=>sel._id !== delUser._id))
+  
+    setSelectedUser(selectedUser.filter((sel) => sel._id !== delUser._id));
+   
+    
   };
 
   const handleGroup = (userToAdd) => {
@@ -111,7 +115,7 @@ const GroupChatModal = ({ children }) => {
 
             {selectedUser?.map((u) => (
               <UserBadgeItem
-              key={user._id}
+              key={u._id}
               user={u}
               handleFunction={() => handleDelete(u)}
               />
